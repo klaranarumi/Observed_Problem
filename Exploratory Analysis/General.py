@@ -9,14 +9,6 @@ data.info()
 ## Verificar quantos tipos tem em cada coluna
 data.nunique()
 
-
-# Data
-data['Date of birth'] = pd.to_datetime(transactional_data['Date of birth']) 
-transactional_data['Month_service'] = transactional_data['Date of service'].dt.month 
-transactional_data['Year_service'] =transactional_data['Date of service'].dt.year
-
-
-
 # Ordenar os dados da coluna
 data.sort_values(by='Col', ascending=False).head(10)
 
@@ -39,4 +31,7 @@ data = data.drop(data_remove.index)
 # Mudar o Tipo de coluna
 data['Col'] = (data['Col']).astype('int')
 
-
+# Mudar o Tipo da Data
+data['Col_data'] = pd.to_datetime(data['Col_data'])
+## Pegar os Dados do Mês da data
+data['Col_data'].dt.month 
